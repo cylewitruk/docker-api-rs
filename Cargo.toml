@@ -57,7 +57,7 @@ tempfile = "3"
 gethostname = "0.2"
 
 [target.'cfg(unix)'.dev-dependencies]
-nix = "0.25"
+nix = { version = "0.28.0", features = ["user"] }
 
 [features]
 default = ["containers-api/chrono", "chrono"]
