@@ -4,6 +4,7 @@ use std::{
     string::ToString,
 };
 
+use base64::{engine::general_purpose, Engine};
 use containers_api::opts::{Filter, FilterItem};
 use containers_api::url::encoded_pairs;
 use containers_api::{
@@ -51,7 +52,7 @@ impl RegistryAuth {
     /// serialize authentication as JSON in base64
     pub fn serialize(&self) -> String {
         serde_json::to_string(self)
-            .map(|c| base64::encode_config(c, base64::URL_SAFE))
+            .map(|c| general_purpose::URL_SAFE.encode(c))
             .unwrap_or_default()
     }
 }
