@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-use docker_api::{conn::TtyChunk, Docker, Result};
+use stackify_docker_api::{conn::TtyChunk, Docker, Result};
 use std::str;
 
 #[cfg(unix)]

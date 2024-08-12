@@ -43,7 +43,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             };
         }
         Cmd::DataUsage => {
-            use docker_api::opts::{DataUsageType, SystemDataUsageOpts};
+            use stackify_docker_api::opts::{DataUsageType, SystemDataUsageOpts};
             match docker
                 .data_usage(
                     &SystemDataUsageOpts::builder()

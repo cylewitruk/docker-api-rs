@@ -1,7 +1,7 @@
 mod common;
 use clap::Parser;
 use common::new_docker;
-use docker_api::{conn::TtyChunk, Exec};
+use stackify_docker_api::{conn::TtyChunk, Exec};
 
 #[derive(Parser)]
 pub struct Opts {
@@ -34,7 +34,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     match opts.subcmd {
         Cmd::Inspect { container, cmd } => {
-            use docker_api::opts::ExecCreateOpts;
+            use stackify_docker_api::opts::ExecCreateOpts;
             use futures::StreamExt;
 
             // Create Opts with specified command
@@ -72,7 +72,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             width,
             height,
         } => {
-            use docker_api::opts::ExecResizeOpts;
+            use stackify_docker_api::opts::ExecResizeOpts;
             let exec = Exec::get(docker, &exec);
 
             // Resize its window with given parameters

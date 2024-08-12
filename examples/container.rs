@@ -187,7 +187,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             pause,
             changes,
         } => {
-            use docker_api::opts::ContainerCommitOpts;
+            use stackify_docker_api::opts::ContainerCommitOpts;
 
             let mut opts = ContainerCommitOpts::builder();
 
@@ -220,7 +220,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
         Cmd::Create { image, nam } => {
-            use docker_api::opts::ContainerCreateOpts;
+            use stackify_docker_api::opts::ContainerCreateOpts;
             let opts = if let Some(name) = nam {
                 ContainerCreateOpts::builder()
                     .image(image)
@@ -235,7 +235,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
         Cmd::Delete { id, force } => {
-            use docker_api::opts::ContainerRemoveOpts;
+            use stackify_docker_api::opts::ContainerRemoveOpts;
 
             let opts = if force {
                 ContainerRemoveOpts::builder().force(true).build()
@@ -247,7 +247,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
         Cmd::Exec { id, cmd } => {
-            use docker_api::opts::ExecCreateOpts;
+            use stackify_docker_api::opts::ExecCreateOpts;
             let options = ExecCreateOpts::builder()
                 .command(cmd)
                 .attach_stdout(true)
@@ -273,7 +273,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             };
         }
         Cmd::List { all } => {
-            use docker_api::opts::ContainerListOpts;
+            use stackify_docker_api::opts::ContainerListOpts;
 
             let opts = if all {
                 ContainerListOpts::builder().all(true).build()
@@ -297,7 +297,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
         Cmd::Logs { id, stdout, stderr } => {
-            use docker_api::opts::LogsOpts;
+            use stackify_docker_api::opts::LogsOpts;
             let container = docker.containers().get(&id);
             let logs_stream =
                 container.logs(&LogsOpts::builder().stdout(stdout).stderr(stderr).build());
@@ -318,7 +318,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             print!("{}", String::from_utf8_lossy(&logs));
         }
         Cmd::Prune { until } => {
-            use docker_api::opts::{ContainerPruneFilter, ContainerPruneOpts};
+            use stackify_docker_api::opts::{ContainerPruneFilter, ContainerPruneOpts};
 
             let opts = if let Some(until) = until {
                 ContainerPruneOpts::builder()
@@ -351,7 +351,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             };
         }
         Cmd::Stop { id, wait, signal } => {
-            use docker_api::opts::ContainerStopOpts;
+            use stackify_docker_api::opts::ContainerStopOpts;
 
             let mut opts = ContainerStopOpts::builder();
             if let Some(w) = wait {
@@ -367,7 +367,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             };
         }
         Cmd::Restart { id, wait, signal } => {
-            use docker_api::opts::ContainerRestartOpts;
+            use stackify_docker_api::opts::ContainerRestartOpts;
 
             let mut opts = ContainerRestartOpts::builder();
             if let Some(w) = wait {

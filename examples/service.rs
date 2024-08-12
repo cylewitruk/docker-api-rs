@@ -55,7 +55,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             };
         }
         Cmd::List { with_status } => {
-            use docker_api::opts::ServiceListOpts;
+            use stackify_docker_api::opts::ServiceListOpts;
 
             match docker
                 .services()
@@ -75,7 +75,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             stdout,
             stderr,
         } => {
-            use docker_api::opts::LogsOpts;
+            use stackify_docker_api::opts::LogsOpts;
             use futures::StreamExt;
 
             let service = docker.services().get(&service);

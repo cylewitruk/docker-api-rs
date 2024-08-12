@@ -1,5 +1,5 @@
 [package]
-name = "docker-api"
+name = "stackify-docker-api"
 version = "0.14.0"
 authors = ["Wojciech Kępka <wojciech@wkepka.dev"]
 description = "Interface to Docker API"

@@ -84,7 +84,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             #[cfg(feature = "par-compress")]
             multithread,
         } => {
-            use docker_api::opts::ImageBuildOpts;
+            use stackify_docker_api::opts::ImageBuildOpts;
             let options = ImageBuildOpts::builder(path).tag(tag).build();
 
             let images = docker.images();
@@ -125,7 +125,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             force,
             noprune,
         } => {
-            use docker_api::opts::ImageRemoveOpts;
+            use stackify_docker_api::opts::ImageRemoveOpts;
             let opts = ImageRemoveOpts::builder()
                 .force(force)
                 .noprune(noprune)
@@ -140,7 +140,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             };
         }
         Cmd::Export { image } => {
-            use docker_api::Error;
+            use stackify_docker_api::Error;
             use std::{fs::OpenOptions, io::Write};
             let mut export_file = OpenOptions::new()
                 .write(true)
@@ -178,7 +178,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
         Cmd::List { all } => {
-            use docker_api::opts::ImageListOpts;
+            use stackify_docker_api::opts::ImageListOpts;
 
             let opts = if all {
                 ImageListOpts::builder().all(true).build()
@@ -210,7 +210,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             username,
             password,
         } => {
-            use docker_api::opts::{PullOpts, RegistryAuth};
+            use stackify_docker_api::opts::{PullOpts, RegistryAuth};
             let opts = if let (Some(username), Some(pass)) = (username, password) {
                 let auth = RegistryAuth::builder()
                     .username(username)
@@ -249,8 +249,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             image: name,
             tag,
         } => {
-            use docker_api::api::Image;
-            use docker_api::opts::TagOpts;
+            use stackify_docker_api::api::Image;
+            use stackify_docker_api::opts::TagOpts;
 
             let tag_opts = TagOpts::builder().repo(repo).tag(tag).build();
 

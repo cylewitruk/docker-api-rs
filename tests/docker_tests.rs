@@ -1,7 +1,7 @@
 mod common;
 
 use common::init_runtime;
-use docker_api::opts::{DataUsageType, SystemDataUsageOpts};
+use stackify_docker_api::opts::{DataUsageType, SystemDataUsageOpts};
 
 #[tokio::test]
 async fn docker_info() {

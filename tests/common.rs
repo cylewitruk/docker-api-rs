@@ -4,8 +4,8 @@ use std::env;
 use std::path::PathBuf;
 
 #[allow(unused_imports)]
-pub use docker_api::conn;
-pub use docker_api::{api, models, models::ImageBuildChunk, opts, Docker};
+pub use stackify_docker_api::conn;
+pub use stackify_docker_api::{api, models, models::ImageBuildChunk, opts, Docker};
 pub use futures_util::StreamExt;
 #[allow(unused_imports)]
 pub use futures_util::TryStreamExt;

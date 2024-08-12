@@ -33,7 +33,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     match opts.subcmd {
         Cmd::Create { volume, driver } => {
-            use docker_api::opts::VolumeCreateOpts;
+            use stackify_docker_api::opts::VolumeCreateOpts;
             match docker
                 .volumes()
                 .create(

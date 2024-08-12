@@ -45,7 +45,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     match opts.subcmd {
         Cmd::Connect { container, network } => {
-            use docker_api::opts::ContainerConnectionOpts;
+            use stackify_docker_api::opts::ContainerConnectionOpts;
             if let Err(e) = docker
                 .networks()
                 .get(&network)
@@ -56,7 +56,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
         Cmd::Create { network, driver } => {
-            use docker_api::opts::NetworkCreateOpts;
+            use stackify_docker_api::opts::NetworkCreateOpts;
             match docker
                 .networks()
                 .create(&NetworkCreateOpts::builder(network).driver(driver).build())
@@ -72,7 +72,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }
         Cmd::Disconnect { container, network } => {
-            use docker_api::opts::ContainerDisconnectionOpts;
+            use stackify_docker_api::opts::ContainerDisconnectionOpts;
             if let Err(e) = docker
                 .networks()
                 .get(network)

@@ -212,7 +212,7 @@ async fn container_stop() {
 
 #[tokio::test]
 async fn container_commit() {
-    use docker_api::opts::ContainerCommitOpts;
+    use stackify_docker_api::opts::ContainerCommitOpts;
     let docker = init_runtime();
 
     let container_name = "test-commit-container";
@@ -411,7 +411,7 @@ async fn container_changes() {
         .unwrap();
     while exec_stream.next().await.is_some() {}
 
-    use docker_api::models::FilesystemChange;
+    use stackify_docker_api::models::FilesystemChange;
 
     let changes = container
         .changes()
@@ -454,7 +454,7 @@ async fn container_logs() {
 
     let _ = container.start().await;
 
-    use docker_api::opts::LogsOpts;
+    use stackify_docker_api::opts::LogsOpts;
 
     let mut logs_stream = container.logs(&LogsOpts::builder().stdout(true).stderr(true).build());
     let chunk = logs_stream.next().await;
@@ -515,7 +515,7 @@ async fn container_top() {
 
 #[tokio::test]
 async fn containers_list() {
-    use docker_api::opts::{ContainerFilter, ContainerListOpts};
+    use stackify_docker_api::opts::{ContainerFilter, ContainerListOpts};
     let docker = init_runtime();
 
     let container_name = "test-list-container";
@@ -597,7 +597,7 @@ async fn containers_list() {
 
 #[tokio::test]
 async fn containers_prune() {
-    use docker_api::opts::{ContainerPruneFilter, ContainerPruneOpts};
+    use stackify_docker_api::opts::{ContainerPruneFilter, ContainerPruneOpts};
     let docker = init_runtime();
 
     let container_name = "test-prune-container";
