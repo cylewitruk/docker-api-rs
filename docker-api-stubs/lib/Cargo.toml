@@ -1,14 +1,14 @@
 [package]
-name = "docker-api-stubs"
+name = "stackify-docker-api-stubs"
 version = "0.6.0"
-authors = [ "Wojciech Kępka <wojciech@wkepka.dev>" ]
+authors = [ "Wojciech Kępka <wojciech@wkepka.dev>", "Cyle Witruk <cyle@witruk.me>" ]
 description = "Generated Docker API swagger stubs for use in docker-api"
 license = "MIT"
 edition = "2021"
 
 documentation = "https://docs.rs/docker-api-stubs"
-homepage = "https://github.com/vv9k/docker-api-rs"
-repository = "https://github.com/vv9k/docker-api-rs"
+homepage = "https://github.com/cylewitruk/docker-api-rs"
+repository = "https://github.com/cylewitruk/docker-api-rs"
 keywords = ["docker", "api", "stubs", "models"]
 
 [dependencies]

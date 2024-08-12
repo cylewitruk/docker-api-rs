@@ -1,11 +1,11 @@
 [package]
 name = "stackify-docker-api"
-version = "0.14.0"
-authors = ["Wojciech Kępka <wojciech@wkepka.dev"]
+version = "0.15.0"
+authors = ["Wojciech Kępka <wojciech@wkepka.dev", "Cyle Witruk <cyle@witruk.me>"]
 description = "Interface to Docker API"
 documentation = "https://docs.rs/docker-api"
-homepage = "https://github.com/vv9k/docker-api-rs"
-repository = "https://github.com/vv9k/docker-api-rs"
+homepage = "https://github.com/cylewitruk/docker-api-rs"
+repository = "https://github.com/cylewitruk/docker-api-rs"
 keywords = ["docker"]
 license = "MIT"
 edition = "2021"
@@ -17,7 +17,7 @@ containers-api = "0.9"
 #containers-api = { git = "https://github.com/vv9k/containers-api" }
 
 #docker-api-stubs = "0.5"
-docker-api-stubs = { path = "./docker-api-stubs/lib" }
+stackify-docker-api-stubs = { path = "./docker-api-stubs/lib" }
 
 log = "0.4"
 paste = "1"
